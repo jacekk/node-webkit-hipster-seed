@@ -6,17 +6,12 @@ build.xml
 .settings
 .idea/
 
-# _public
-
-_public/index.html
-_public/css/
-_public/js/
-
-# npm, bower, brunch
+dist/
+cache/
+_public/
 
 node_modules/
 bower_components/
-dist/
-cache/
+
 npm-debug.log
 test/test-results.xml
