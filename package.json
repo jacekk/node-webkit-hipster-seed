@@ -11,7 +11,7 @@
   "scripts": {
     "compiler": "brunch watch -P",
     "test": "karma start test/karma.conf.js",
-    "app": "nodewebkit _public",
+    "app": "node_modules/.bin/nw _public",
     "deploy": "grunt"
   },
   "dependencies": {
