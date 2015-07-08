@@ -2,23 +2,21 @@
 nbproject
 manifest.mf
 build.xml
-
-node_modules
-cache/
-
 .project
 .settings
-.idea/*
+.idea/
 
 # _public
-node_modules/*
-npm-debug.log
 
-test/test-results.xml
+_public/index.html
+_public/css/
+_public/js/
 
-# Bower stuff.
+# npm, bower, brunch
+
+node_modules/
 bower_components/
-
-# build stuff.
-dist
-dist/*
+dist/
+cache/
+npm-debug.log
+test/test-results.xml
