@@ -9,7 +9,7 @@
     "url": "https://github.com/Anonyfox/node-webkit-hipster-seed"
   },
   "scripts": {
-    "compiler": "brunch watch -P",
+    "serve": "node_modules/.bin/bower install && brunch watch --server",
     "test": "karma start test/karma.conf.js",
     "app": "node_modules/.bin/nw _public",
     "deploy": "grunt"
