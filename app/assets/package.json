@@ -9,7 +9,7 @@
     "type": "git",
     "url": ""
   },
-  "main": "index.html",
+  "main": "app://hostname/index.html",
   "node-main": "",
   "single-instance": true,
   "chromium-args": "",
