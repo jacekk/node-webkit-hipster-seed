@@ -2,15 +2,20 @@
 
 ### Controllers ###
 
-angular.module('app.controllers', [])
+# register the module with Angular
+angular.module('app.controllers', [
+  # require the 'app.service' module
+  'app.services'
+])
 
 .controller('AppCtrl', [
   '$scope'
   '$location'
   '$resource'
   '$rootScope'
+  'appConfig'
 
-($scope, $location, $resource, $rootScope) ->
+($scope, $location, $resource, $rootScope, appConfig) ->
 
   # Uses the url to determine if the selected
   # menu item should have the class active.
@@ -18,6 +23,8 @@ angular.module('app.controllers', [])
   $scope.$watch('$location.path()', (path) ->
     $scope.activeNavId = path || '/'
   )
+
+  $scope.appName = appConfig.longname
 
   # getClass compares the current url with the id.
   # If the current url starts with the id it returns 'active'
@@ -34,18 +41,15 @@ angular.module('app.controllers', [])
       return ''
 ])
 
-.controller('MyCtrl1', [
+.controller('HeadCtrl', [
   '$scope'
+  'appConfig'
 
-($scope) ->
-  $scope.onePlusOne = 2
-])
-
-.controller('MyCtrl2', [
-  '$scope'
-
-($scope) ->
-  $scope
+($scope, appConfig) ->
+  $scope.appTitle = appConfig.name
+  $scope.appAuthor = appConfig.author
+  $scope.appDescription = appConfig.description
+  $scope.appVersion = appConfig.version
 ])
 
 .controller('TodoCtrl', [
@@ -82,4 +86,3 @@ angular.module('app.controllers', [])
       $scope.todos.push todo  unless todo.done
 
 ])
-

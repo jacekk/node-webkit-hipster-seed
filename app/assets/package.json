@@ -14,6 +14,9 @@
   "single-instance": true,
   "chromium-args": "",
   "dom_storage_quota": 1024,
+  "appinfo": {
+    "longname": "My Awesome App"
+  },
   "window": {
     "//": "screen settings",
     "title": "my awesome app",

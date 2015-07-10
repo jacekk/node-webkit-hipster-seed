@@ -1,14 +1,14 @@
 !!! 5
 html(lang='en', ng-app='app')
-  head
+  head(ng-controller='HeadCtrl')
     meta(charset='utf-8')
     meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
     meta(name='viewport', content='width=device-width', initial-scale='1.0')
-    meta(name='description', content='')
-    meta(name='author', content='')
+    meta(name='description', content='{{appDescription}}')
+    meta(name='author', content='{{appAuthor}}')
     script.
       document.write('<base href="' + window.location.pathname + '" />');
-    title(ng-bind-template='{{pageTitle}}')
+    title(ng-bind-template='{{appTitle}} - {{appVersion}}')
     link(rel='stylesheet', href='css/app.css')
     script.
       window.brunch = window.brunch || {};
@@ -28,12 +28,11 @@ html(lang='en', ng-app='app')
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-            a(href='#!/').navbar-brand Angular Brunch Seed
+            a(href='#!/').navbar-brand {{appName}}
             div.collapse.navbar-collapse(ng-include="'app/templates/nav.jade'")
       .container.main-content
         div(ng-view)
         div Angular Brunch seed app: v<span app-version></span>
-      .push
 
     footer.footer
       .container

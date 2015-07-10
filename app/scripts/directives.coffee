@@ -9,10 +9,10 @@ angular.module('app.directives', [
 ])
 
 .directive('appVersion', [
-  'version'
+  'appConfig'
 
-(version) ->
+(appConfig) ->
 
   (scope, elm, attrs) ->
-    elm.text(version)
+    elm.text(appConfig.version)
 ])
