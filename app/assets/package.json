@@ -17,7 +17,7 @@
   "window": {
     "//": "screen settings",
     "title": "my awesome app",
-    "icon": "link.png",
+    "icon": "icon.png",
     "toolbar": true,
     "frame": true,
     "position": "center",
