@@ -6,6 +6,8 @@ html(lang='en', ng-app='app')
     meta(name='viewport', content='width=device-width', initial-scale='1.0')
     meta(name='description', content='')
     meta(name='author', content='')
+    script.
+      document.write('<base href="' + window.location.pathname + '" />');
     title(ng-bind-template='{{pageTitle}}')
     link(rel='stylesheet', href='css/app.css')
     //-script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
@@ -19,8 +21,8 @@ html(lang='en', ng-app='app')
         enabled: true
       };
     script(src='js/vendor.js')
-    script(src='js/app.templates.js')
     script(src='js/app.js')
+    script(src='js/app.templates.js')
   body(ng-controller='AppCtrl')
     .wrapper
       .navbar.navbar-static-top
@@ -30,9 +32,9 @@ html(lang='en', ng-app='app')
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            a(href='/').brand Angular Brunch Seed
+            a(href='#!/').brand Angular Brunch Seed
             .nav-collapse
-              div(ng-include="'app/partials/nav.jade'")
+              div(ng-include="'app/templates/nav.jade'")
       .container.main-content
         div(ng-view)
         div Angular Brunch seed app: v<span app-version></span>

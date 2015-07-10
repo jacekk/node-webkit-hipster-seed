@@ -31,7 +31,7 @@ exports.config =
     jade:
       pretty: yes # Adds pretty-indentation whitespaces to output (false by default)
     jade_angular:
-      modules_folder: 'partials'
+      modules_folder: 'templates'
       locals: {}
     autoReload:
       host: 'localhost'
