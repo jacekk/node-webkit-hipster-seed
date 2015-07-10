@@ -18,7 +18,6 @@
     "longname": "My Awesome App"
   },
   "window": {
-    "//": "screen settings",
     "title": "my awesome app",
     "icon": "icon.png",
     "toolbar": true,
