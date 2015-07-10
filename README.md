@@ -13,9 +13,12 @@ If you're familiar with the node.js world, this sketch should get you informed, 
 
 - No this isn't a developer joke. It works. 
 - `brunch new https://github.com/Anonyfox/node-webkit-hipster-seed MyApp` to get you started.
-- `npm run compiler` assembles your application into `/_public` and watches file changes.
+- `npm run build` assembles your application into `/_public`.
+- `npm run watch` assembles your application into `/_public` and starts watching.
 - `npm run app` starts your application locally. 
 - `npm run deploy` builds your app for windows, osx and linux. the binaries are placed in `/dist` after building. 
+- `npm run clean` deletes the `/_public` directory.
+- `npm run start` cleans, builds, watches and then launches your application locally.
 - `bower install <frontend-module>` for any frontend-related stuff. jQuery, Angular-plugins, and so on. 
 - `npm install my-module` **inside of `app/assets`** to install node.js modules. 
 - see the [wiki](https://github.com/Anonyfox/node-webkit-hipster-seed/wiki) for advanced stuff.
@@ -40,8 +43,9 @@ brunch new https://github.com/Anonyfox/node-webkit-hipster-seed MyApp
 
 *This may take a few minutes depending on your hardware and internet connection, since this git repo will be cloned, a bunch of npm modules will be installed, including the somewhat big [node-webkit](https://github.com/rogerwang/node-webkit), and several bower modules afterwards.*
 
-**Currently there is a bug within the nodewebkit package.** You have to rename
-`node_modules/nodewebkit/package.json` to `node_modules/nodewebkit/_package.json`
+~~**Currently there is a bug within the nodewebkit package.** You have to rename
+`node_modules/nodewebkit/package.json` to `node_modules/nodewebkit/_package.json`~~
+_nodewebkit is now nw.js and this problem appears to be resolved._
 
 ###2. Develop an AngularJS App on Steroids!
 
@@ -49,14 +53,14 @@ brunch new https://github.com/Anonyfox/node-webkit-hipster-seed MyApp
 
 - `/app/styles` contains all your stylesheets as LESS files. You may look into `/app/styles/app.less` when fine-tuning your included CSS-related components.
 - `/app/scripts` is the folder for your coffeescript application logic, especially your AngularJS stuff. The mighty AngularJS main-module is defined in `/app/app.coffee` and includes the angular module loader and the url routing definitions. 
-- `/app/partials` contains your Jade templates which are compiled and merged into an AngularJS template module. The main index file is located at `/app/index.jade` and will be compiled to an actual `index.html` file.
+- `/app/templates` contains your Jade templates which are compiled and merged into an AngularJS template module. The main index file is located at `/app/index.jade` and will be compiled to an actual `index.html` file.
 - `/app/assets` is the catch-all directory for everything else, like images or fonts. The whole directory, including the folder-hierarchy, is copied **as is** into the final application folder. *If you want to use npm modules inside your application, install them here, and NOT in the toplevel folder!* Also, the `/app/assets/package.json` is used to describe and build your application, NOT the toplevel `/package.json`!
 
 *The App-level structure is basically the same as [angular-brunch-seed](https://github.com/scotch/angular-brunch-seed).*
 
 All this assembling stuff is managed for you automatically when you run the following command: 
 
-```npm run compiler```
+```npm run watch```
 
 While this task is running, every change in your `/app` folder triggers an efficient partial rebuild of the relevant files. Any `bower install <frontend-module>` triggers this, too. 
 
