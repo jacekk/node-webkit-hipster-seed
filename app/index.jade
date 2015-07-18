@@ -32,12 +32,14 @@ html(lang='en', ng-app='app')
             div.collapse.navbar-collapse(ng-include="'app/templates/nav.jade'")
       .container.main-content
         div(ng-view)
-        div Angular Brunch Seed app: v<span app-version></span>
+        .alert.alert-info(role='alert')
+          div Angular Brunch Seed app: v
+            b <span app-version></span>
 
     footer.footer
       .container
         p
           small
-            a(href='https://github.com/scotch/angular-brunch-seed') angular-brunch-seed
+            a(href='https://github.com/scotch/angular-brunch-seed', target='_blank') angular-brunch-seed
             |  |
-            a(href='https://github.com/Anonyfox/node-webkit-hipster-seed')  node-webkit-hipster-seed
+            a(href='https://github.com/Anonyfox/node-webkit-hipster-seed', target='_blank')  node-webkit-hipster-seed
