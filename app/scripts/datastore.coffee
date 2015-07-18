@@ -1,10 +1,10 @@
 DataStore = exports? and exports or @DataStore = {}
 
 # which kind of database do you want?
-# possible alternatives: 
-# - "simple" => this will use the browser's localStorage mechanism. Simple, but synchronous/blocking !!
+# possible alternatives:
+# - "simple" => this will use the browser"s localStorage mechanism. Simple, but synchronous/blocking !!
 # - "relational" => this will use the browser-internal sqlite implementation, "Web SQL Database"
-# - "document" => Use MongoDB's little brother: https://github.com/louischatriot/nedb
+# - "document" => Use MongoDB"s little brother: https://github.com/louischatriot/nedb
 DataStore.create = (type) -> switch type
   when "simple" then createSimpleStore()
   # when "keyvalue" then createKeyValueStore()
@@ -24,21 +24,21 @@ createSimpleStore = ->
 createRelationalStore = ->
   db = openDatabase "nwsqldb", "1.0", "embedded sql database", 1024 * 1024 * 256
   store = {
-    run: (query, fn) -> db.transaction (tx) -> tx.executeSql query, [], (tx, result) -> 
+    run: (query, fn) -> db.transaction (tx) -> tx.executeSql query, [], (tx, result) ->
       fn? (result.rows.item(i) for i in [0 ... result.rows.length])
   }
   return store
 
 createDocumentStore = ->
-  try 
+  try
     NeDB = require "nedb"
-    datapath = require('nw.gui').App.dataPath + "/nedb"
+    datapath = require("nw.gui").App.dataPath + "/nedb"
     store = {
       collection: (name) -> new NeDB({ filename: "/#{name}", autoload: true });
     }
     return store
   catch e
-    if e.code is "MODULE_NOT_FOUND" 
-      console.error "NeDB not found. Try `npm install nedb --save` inside of `/app/assets`." 
-    else 
-      console.error e 
+    if e.code is "MODULE_NOT_FOUND"
+      console.error "NeDB not found. Try `npm install nedb --save` inside of `/app/assets`."
+    else
+      console.error e

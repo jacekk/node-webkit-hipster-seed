@@ -37,8 +37,7 @@ angular.module('app.controllers', [
   $scope.getClass = (id) ->
     if $scope.activeNavId.substring(0, id.length) == id
       return 'active'
-    else
-      return ''
+    return ''
 ])
 
 .controller('HeadCtrl', [

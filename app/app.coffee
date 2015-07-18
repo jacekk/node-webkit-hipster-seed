@@ -26,7 +26,7 @@ App.config([
     .when('/view2', { templateUrl: 'app/templates/partial2.jade' })
 
     # Catch all
-    .otherwise({redirectTo: '/todo'})
+    .otherwise({ redirectTo: '/todo' })
 
   $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|file|nw|app):/)
 
