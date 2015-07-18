@@ -65,11 +65,14 @@ angular.module('app.controllers', [
   ]
 
   $scope.addTodo = ->
+    if not $scope.todoText or $scope.todoText is ''
+      return
+
     $scope.todos.push
       text: $scope.todoText
       done: false
 
-    $scope.todoText = ""
+    $scope.todoText = ''
 
   $scope.remaining = ->
     count = 0
