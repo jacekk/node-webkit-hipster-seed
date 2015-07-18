@@ -6,8 +6,8 @@ module.exports = function(grunt) {
         version: "0.12.2",
         buildDir: './dist',
         platforms: ['osx', 'win', 'linux'],
-        // winIco: '_public/icon.ico',
-        macIcns: '_public/icon.icns'
+        // winIco: '_public/icons/icon.ico',
+        macIcns: '_public/icons/icon.icns'
       },
       src: './_public/**/*'
     },

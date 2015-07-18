@@ -19,7 +19,7 @@
   },
   "window": {
     "title": "my awesome app",
-    "icon": "icon.png",
+    "icon": "icons/icon.png",
     "toolbar": true,
     "frame": true,
     "position": "center",
