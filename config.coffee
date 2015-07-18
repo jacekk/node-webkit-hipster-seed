@@ -8,6 +8,7 @@ exports.config =
     wrapper: false
   paths:
     public: '_public'
+    jadeCompileTrigger: 'js/.compile-jade'
   files:
     javascripts:
       joinTo:
@@ -24,14 +25,16 @@ exports.config =
 
     templates:
       joinTo:
-        'js/dontUseMe' : /^app/ # dirty hack for Jade compiling.
+        'js/.compile-jade' : /^app/ # dirty hack for Jade compiling.
 
   plugins:
     jade:
       pretty: yes # Adds pretty-indentation whitespaces to output (false by default)
     jade_angular:
-      modules_folder: 'partials'
+      modules_folder: 'templates'
       locals: {}
+    autoReload:
+      host: 'localhost'
 
   # Enable or disable minifying of result js / css files.
   minify: true

@@ -9,10 +9,24 @@
     "url": "https://github.com/Anonyfox/node-webkit-hipster-seed"
   },
   "scripts": {
-    "serve": "node_modules/.bin/bower install && brunch watch --server",
+    "prestart": "node_modules/.bin/bower install",
+    "start": "npm run clean && npm run build && npm run dev",
+    "dev": "parallelshell \"npm run watch\" \"npm run app\"",
+    "watch": "brunch watch",
+    "watch:prod": "brunch watch --production",
     "test": "karma start test/karma.conf.js",
+    "test:e2e": "karma start test/karma-e2e.conf.js",
     "app": "node_modules/.bin/nw _public",
+    "clean": "npm run clean",
+    "build": "brunch build",
+    "build:prod": "brunch build --production",
+    "clean": "rimraf _public",
+    "predeploy": "npm run clean && npm run build:prod",
     "deploy": "grunt"
+  },
+  "devDependencies": {
+    "rimraf": "^2.4.1",
+    "parallelshell": "^1.2.0"
   },
   "dependencies": {
     "jade": "~1.9",

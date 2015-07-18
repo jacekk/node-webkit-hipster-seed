@@ -15,18 +15,21 @@ App = angular.module('app', [
 App.config([
   '$routeProvider'
   '$locationProvider'
+  '$compileProvider'
 
-($routeProvider, $locationProvider, config) ->
+($routeProvider, $locationProvider, $compileProvider, config) ->
 
   $routeProvider
 
-    .when('/todo', { templateUrl: 'app/partials/todo.jade' })
-    .when('/view1', { templateUrl: 'app/partials/partial1.jade' })
-    .when('/view2', { templateUrl: 'app/partials/partial2.jade' })
+    .when('/todo',  { templateUrl: 'app/templates/todo.jade' })
+    .when('/view1', { templateUrl: 'app/templates/partial1.jade' })
+    .when('/view2', { templateUrl: 'app/templates/partial2.jade' })
 
     # Catch all
     .otherwise({redirectTo: '/todo'})
 
+  $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|file|nw|app):/)
+
   # Without server side support html5 must be disabled.
-  $locationProvider.html5Mode(false)
+  $locationProvider.html5Mode(false).hashPrefix('!')
 ])

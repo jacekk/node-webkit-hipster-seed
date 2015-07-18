@@ -2,12 +2,28 @@
 
 ### Filters ###
 
-angular.module('app.filters', [])
+# register the module with Angular
+angular.module('app.filters', [
+  # require the 'app.service' module
+  'app.services'
+])
 
 .filter('interpolate', [
-  'version',
+  'appConfig',
 
-(version) ->
+(appConfig) ->
+  keys =
+    'APP_VERSION':      appConfig.version
+    'APP_MAIN':         appConfig.main
+    'APP_AUTHOR':       appConfig.author
+    'APP_NAME':         appConfig.name
+    'APP_DESCRIPTION':  appConfig.description
   (text) ->
-    String(text).replace(/\%VERSION\%/mg, version)
+    out = text
+    for key of keys
+      if !keys.hasOwnProperty(key)
+        continue
+      re = new RegExp("%" + key + "%", "mg")
+      out = out.replace(re, keys[key])
+    return out
 ])
